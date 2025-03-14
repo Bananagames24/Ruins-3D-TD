@@ -22,8 +22,8 @@ public class CameraLook : MonoBehaviour
 
     private void CamRotation()
     {
-        m_CamVector.x *= m_sensitivity * Time.deltaTime;
-        m_CamVector.y *= m_sensitivity * Time.deltaTime;
+        m_CamVector.x *= m_sensitivity * Time.fixedDeltaTime;
+        m_CamVector.y *= m_sensitivity * Time.fixedDeltaTime;
 
         xRotation -= m_CamVector.y;
 
