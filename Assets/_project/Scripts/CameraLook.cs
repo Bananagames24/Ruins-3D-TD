@@ -11,6 +11,7 @@ public class CameraLook : MonoBehaviour
 
     private void Start()
     {
+        //makes the cursor invisible and locks it in the middle of the screen
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -20,6 +21,7 @@ public class CameraLook : MonoBehaviour
         CamRotation();
     }
 
+    //lets the player look around
     private void CamRotation()
     {
         m_CamVector.x *= m_sensitivity * Time.fixedDeltaTime;

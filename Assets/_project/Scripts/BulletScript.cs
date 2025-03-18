@@ -15,6 +15,7 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject, 5f);
         m_PlayerCameraTransform = FindAnyObjectByType<Camera>().transform;
 
+        //shoots a bullet where to player looks at
         RaycastHit hit;
         if (Physics.Raycast(m_PlayerCameraTransform.position, m_PlayerCameraTransform.forward, out hit))
         {

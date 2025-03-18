@@ -43,7 +43,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (velocity.y < 0)
             {
-                velocity.y = -2f; // Small value to keep the character grounded
+                velocity.y = -2f;
             }
 
             if (m_Jump)
@@ -57,6 +57,8 @@ public class PlayerScript : MonoBehaviour
             velocity.y += m_Gravity * Time.deltaTime;
         }
 
+        //makes the player move in all directions
+        //can only use m.controller.move 1 time in script or the character controller will bug with isgrounded
         Vector3 move = direction * m_Speed * Time.deltaTime + velocity * Time.deltaTime;
         m_Controller.Move(move);
     }
@@ -72,6 +74,8 @@ public class PlayerScript : MonoBehaviour
                 StartCoroutine(ShootingTimer());
             }
         }
+        else { m_Shoot = false; }
+        
     }
     void Gun()
     {

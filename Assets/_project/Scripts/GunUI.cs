@@ -19,7 +19,8 @@ public class GunUI : MonoBehaviour
 
     public void Selected()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        //switches between gun and hand UI when pressing 1 or 2 on keyboard
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             m_GunSelected.SetActive(false);
             m_HandSelected.SetActive(true);
