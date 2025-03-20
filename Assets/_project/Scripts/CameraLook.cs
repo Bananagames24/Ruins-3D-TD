@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class CameraLook : MonoBehaviour
 {
     private Vector2 m_CamVector;
-    private float xRotation = 0f;
+    private float m_XRotation = 0f;
     [SerializeField] private float m_sensitivity = 100f;
 
     [SerializeField] private Transform m_PlayerTransform;
@@ -27,11 +27,11 @@ public class CameraLook : MonoBehaviour
         m_CamVector.x *= m_sensitivity * Time.fixedDeltaTime;
         m_CamVector.y *= m_sensitivity * Time.fixedDeltaTime;
 
-        xRotation -= m_CamVector.y;
+        m_XRotation -= m_CamVector.y;
 
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        m_XRotation = Mathf.Clamp(m_XRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(m_XRotation, 0f, 0f);
         m_PlayerTransform.Rotate(Vector3.up * m_CamVector.x);
     }
 

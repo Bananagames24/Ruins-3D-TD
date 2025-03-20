@@ -12,6 +12,9 @@ public class TowerScript : MonoBehaviour
     public int m_TowerCost;
     public int m_Moneyfarming;
 
+    [Header("Tower Components")]
+    [SerializeField] private GameObject m_TowerUI;
+
     void Start()
     {
         //select tower type
@@ -58,6 +61,22 @@ public class TowerScript : MonoBehaviour
             m_TowerCost = 0;
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            m_TowerUI.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            m_TowerUI.SetActive(false);
+        }
     }
 }
 

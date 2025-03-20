@@ -4,18 +4,24 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.Rendering;
 using UnityEngine.Windows;
 
 public class PlayerScript : MonoBehaviour
 {
+    [Header("Player stats")]
+    public int m_PlayerHealth;
+    private bool m_IsDead;
+
     [Header("Player Shooting")]
     [SerializeField] private GameObject m_Gun;
     [SerializeField] private Transform m_BulletSpawnPostition;
     [SerializeField] private GameObject m_Bullet;
     public bool m_IsGunSelected;
     public bool m_IsHandSelected;
+    private float m_FireRate;
     private bool m_Shoot;
-    private bool m_ShootReady = true;
+    private bool m_ShootReady;
 
     [Header("Player Movement")]
     [SerializeField] private float m_Speed;
@@ -26,13 +32,34 @@ public class PlayerScript : MonoBehaviour
     [Header("Character Controller")]
     public CharacterController m_Controller;
     private Vector2 m_Input = Vector2.zero;
-    Vector3 velocity;
+    Vector3 m_Velocity;
+
+    [Header("Player UI")]
+    public GameObject m_DeathScreen;
+
+    private void Start()
+    {
+        m_PlayerHealth = 5;
+        m_IsDead = false;
+        m_FireRate = 1;
+        m_ShootReady = true;
+    }
 
     void Update()
     {
         HandleMovementAndJump();
         Shooting();
         Gun();
+
+        if(m_PlayerHealth == 0)
+        {
+            m_IsDead = true;
+        }
+
+        if (m_IsDead)
+        {
+            
+        }
     }
 
     void HandleMovementAndJump()
@@ -41,25 +68,25 @@ public class PlayerScript : MonoBehaviour
 
         if (m_Controller.isGrounded)
         {
-            if (velocity.y < 0)
+            if (m_Velocity.y < 0)
             {
-                velocity.y = -2f;
+                m_Velocity.y = -2f;
             }
 
             if (m_Jump)
             {
-                velocity.y = Mathf.Sqrt(m_JumpForce * -2f * m_Gravity);
+                m_Velocity.y = Mathf.Sqrt(m_JumpForce * -2f * m_Gravity);
                 m_Jump = false;
             }
         }
         else
         {
-            velocity.y += m_Gravity * Time.deltaTime;
+            m_Velocity.y += m_Gravity * Time.deltaTime;
         }
 
         //makes the player move in all directions
         //can only use m.controller.move 1 time in script or the character controller will bug with isgrounded
-        Vector3 move = direction * m_Speed * Time.deltaTime + velocity * Time.deltaTime;
+        Vector3 move = direction * m_Speed * Time.deltaTime + m_Velocity * Time.deltaTime;
         m_Controller.Move(move);
     }
 
@@ -115,7 +142,7 @@ public class PlayerScript : MonoBehaviour
     IEnumerator ShootingTimer()
     {
         Instantiate(m_Bullet, m_BulletSpawnPostition.position, Quaternion.LookRotation(transform.forward), null);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(m_FireRate);
         m_ShootReady = true;
     }
 

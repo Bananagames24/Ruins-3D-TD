@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviour
     public float m_BulletSpeed;
     [SerializeField] private Rigidbody m_Rigidbody;
     [SerializeField] private Transform m_PlayerCameraTransform;
-    private Vector3 direction;
+    private Vector3 m_Direction;
 
     private void Start()
     {
@@ -19,14 +19,14 @@ public class BulletScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(m_PlayerCameraTransform.position, m_PlayerCameraTransform.forward, out hit))
         {
-            direction = (hit.point - transform.position).normalized;
+            m_Direction = (hit.point - transform.position).normalized;
         }
         else
         {
-            direction = m_PlayerCameraTransform.forward;
+            m_Direction = m_PlayerCameraTransform.forward;
         }
 
-        m_Rigidbody.linearVelocity = direction * m_BulletSpeed;
+        m_Rigidbody.linearVelocity = m_Direction * m_BulletSpeed;
     }
 
     private void FixedUpdate()

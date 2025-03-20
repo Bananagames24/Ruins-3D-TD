@@ -8,6 +8,7 @@ TagManager:
   - Path
   - Bullet
   - Enemy
+  - TowerBullet
   layers:
   - Default
   - TransparentFX

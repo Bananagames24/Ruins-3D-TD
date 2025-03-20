@@ -6,10 +6,10 @@ public class EnemyScript : MonoBehaviour
     public EnemySelect EnemyType = new EnemySelect();
 
     [Header("Enemy Stats")]
-    public int Health;
-    public int lifeCost;
-    public float Speed;
-    public int coinDrop;
+    public int m_Health;
+    public int m_LifeCost;
+    public float m_Speed;
+    public int m_CoinDrop;
 
     [Header("AI Movement")]
     public Camera m_Camera;
@@ -20,61 +20,61 @@ public class EnemyScript : MonoBehaviour
         //select enemy type
         if (EnemyType == EnemySelect.BasicE)
         {
-            Health = 50;
-            lifeCost = 2;
-            Speed = 1;
-            coinDrop = 4;
+            m_Health = 50;
+            m_LifeCost = 2;
+            m_Speed = 1;
+            m_CoinDrop = 4;
         }
         else if (EnemyType == EnemySelect.SpeedE)
         {
-            Health = 40;
-            lifeCost = 2;
-            Speed = 2;
-            coinDrop = 5;
+            m_Health = 40;
+            m_LifeCost = 2;
+            m_Speed = 2;
+            m_CoinDrop = 5;
         }
         else if (EnemyType == EnemySelect.SlowE)
         {
-            Health = 100;
-            lifeCost = 5;
-            Speed = 0.6f;
-            coinDrop = 12;
+            m_Health = 100;
+            m_LifeCost = 5;
+            m_Speed = 0.6f;
+            m_CoinDrop = 12;
         }
         else if (EnemyType == EnemySelect.TankE)
         {
-            Health = 200;
-            lifeCost = 10;
-            Speed = 0.9f;
-            coinDrop = 18;
+            m_Health = 200;
+            m_LifeCost = 10;
+            m_Speed = 0.9f;
+            m_CoinDrop = 18;
         }
         else if (EnemyType == EnemySelect.SlowTankE)
         {
-            Health = 400;
-            lifeCost = 20;
-            Speed = 0.5f;
-            coinDrop = 25;
+            m_Health = 400;
+            m_LifeCost = 20;
+            m_Speed = 0.5f;
+            m_CoinDrop = 25;
         }
         else if (EnemyType == EnemySelect.Boss1E)
         {
-            Health = 2000;
-            lifeCost = 50;
-            Speed = 0.5f;
-            coinDrop = 69;
+            m_Health = 2000;
+            m_LifeCost = 50;
+            m_Speed = 0.5f;
+            m_CoinDrop = 69;
         }
         else if (EnemyType == EnemySelect.Boss2E)
         {
-            Health = 4000;
-            lifeCost = 75;
-            Speed = 0.4f;
-            coinDrop = 101;
+            m_Health = 4000;
+            m_LifeCost = 75;
+            m_Speed = 0.4f;
+            m_CoinDrop = 101;
         }
         else if (EnemyType == EnemySelect.Boss3E)
         {
-            Health = 8000;
-            lifeCost = 100;
-            Speed = 0.3f;
-            coinDrop = 169;
+            m_Health = 8000;
+            m_LifeCost = 100;
+            m_Speed = 0.3f;
+            m_CoinDrop = 169;
         }
-        m_Agent.speed = Speed;
+        m_Agent.speed = m_Speed;
     }
 
 
@@ -96,8 +96,8 @@ public class EnemyScript : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            Health -= other.GetComponent<BulletScript>().m_GunDamage;
-            if (Health <= 0)
+            m_Health -= other.GetComponent<BulletScript>().m_GunDamage;
+            if (m_Health <= 0)
             {
                 Destroy(gameObject);
             }
@@ -105,8 +105,8 @@ public class EnemyScript : MonoBehaviour
 
         if (other.CompareTag("TowerBullet"))
         {
-            Health -= other.GetComponent<TowerBulletScript>().m_TowerBulletDamage;
-            if (Health <= 0)
+            m_Health -= other.GetComponent<TowerBulletScript>().m_TowerBulletDamage;
+            if (m_Health <= 0)
             {
                 Destroy(gameObject);
             }
