@@ -6,12 +6,6 @@ public class GunUI : MonoBehaviour
     [SerializeField] private GameObject m_GunSelected;
     [SerializeField] private GameObject m_HandSelected;
 
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Selected();

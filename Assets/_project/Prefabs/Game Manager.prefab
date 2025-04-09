@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4313155911738345887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1306364156492066303}
+  - component: {fileID: 575134313024306765}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1306364156492066303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313155911738345887}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 917.7561, y: 867.4028, z: 1111.059}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575134313024306765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313155911738345887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f72f58a54172d24b945a1830e82b88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CoinsText: {fileID: 0}
+  m_Coins: 0
+  m_Enemies:
+  - {fileID: 4484606802164032360, guid: d1129ea3052dfed42bbd668913369099, type: 3}
+  - {fileID: 3317351094070179488, guid: 936a0ddca61447248a98e3d97208d57d, type: 3}
+  - {fileID: 4003145313521205229, guid: 7d2e50e71de5ec947a1d991c49d9022e, type: 3}
+  - {fileID: 1588506543223472261, guid: 96cb4bb613e53944784b537942ea1e80, type: 3}
+  - {fileID: 8643418461415806496, guid: c2d7a27b4e6cb4e4aaabb306e3d91cd4, type: 3}
+  - {fileID: 3239404382749931516, guid: 4a67e0431abc2e141a024036ed765930, type: 3}
+  - {fileID: 3707922012473020240, guid: 0d695b79d9c622649b0f0f561927129a, type: 3}
+  - {fileID: 27722604622884577, guid: 796ffbf3399452d4889d83de9e063b2f, type: 3}
+  m_Spawn: {fileID: 0}

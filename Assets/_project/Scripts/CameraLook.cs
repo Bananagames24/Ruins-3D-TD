@@ -5,14 +5,15 @@ public class CameraLook : MonoBehaviour
 {
     private Vector2 m_CamVector;
     private float m_XRotation = 0f;
-    [SerializeField] private float m_sensitivity = 100f;
+    [Range(0.1f, 15.0f)]
+    [SerializeField] private float m_sensitivity;
 
     [SerializeField] private Transform m_PlayerTransform;
 
     private void Start()
     {
         //makes the cursor invisible and locks it in the middle of the screen
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
     }
 

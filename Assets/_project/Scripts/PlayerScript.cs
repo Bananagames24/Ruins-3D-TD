@@ -1,11 +1,7 @@
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.Rendering;
-using UnityEngine.Windows;
+
 
 public class PlayerScript : MonoBehaviour
 {
@@ -51,70 +47,71 @@ public class PlayerScript : MonoBehaviour
         Shooting();
         Gun();
 
-        if(m_PlayerHealth == 0)
+        if (m_PlayerHealth == 0)
         {
             m_IsDead = true;
         }
 
         if (m_IsDead)
         {
-            
+            // Handle death logic here
         }
     }
 
-    void HandleMovementAndJump()
-    {
-        Vector3 direction = transform.right * m_Input.x + transform.forward * m_Input.y;
-
-        if (m_Controller.isGrounded)
+        void HandleMovementAndJump()
         {
-            if (m_Velocity.y < 0)
+            Vector3 direction = transform.right * m_Input.x + transform.forward * m_Input.y;
+
+            if (m_Controller.isGrounded)
             {
-                m_Velocity.y = -2f;
+                if (m_Velocity.y < 0)
+                {
+                    m_Velocity.y = -2f;
+                }
+
+                if (m_Jump)
+                {
+                    m_Velocity.y = Mathf.Sqrt(m_JumpForce * -2f * m_Gravity);
+                    m_Jump = false;
+                }
+            }
+            else
+            {
+                m_Velocity.y += m_Gravity * Time.deltaTime;
             }
 
-            if (m_Jump)
-            {
-                m_Velocity.y = Mathf.Sqrt(m_JumpForce * -2f * m_Gravity);
-                m_Jump = false;
-            }
-        }
-        else
-        {
-            m_Velocity.y += m_Gravity * Time.deltaTime;
+            //makes the player move in all directions
+            //can only use m.controller.move 1 time in script or the character controller will bug with isgrounded
+            Vector3 move = direction * m_Speed * Time.deltaTime + m_Velocity * Time.deltaTime;
+            m_Controller.Move(move);
         }
 
-        //makes the player move in all directions
-        //can only use m.controller.move 1 time in script or the character controller will bug with isgrounded
-        Vector3 move = direction * m_Speed * Time.deltaTime + m_Velocity * Time.deltaTime;
-        m_Controller.Move(move);
-    }
-
-    void Shooting()
-    {
-        if (m_Shoot && m_IsGunSelected)
+        void Shooting()
         {
-            m_Shoot = false;
-            if (m_ShootReady)
+            if (m_Shoot && m_IsGunSelected)
             {
-                m_ShootReady = false;
-                StartCoroutine(ShootingTimer());
+                m_Shoot = false;
+                if (m_ShootReady)
+                {
+                    m_ShootReady = false;
+                    StartCoroutine(ShootingTimer());
+                }
+            }
+            else { m_Shoot = false; }
+
+        }
+        void Gun()
+        {
+            if (m_IsGunSelected)
+            {
+                m_Gun.SetActive(true);
+            }
+            else
+            {
+                m_Gun.SetActive(false);
             }
         }
-        else { m_Shoot = false; }
-        
-    }
-    void Gun()
-    {
-        if (m_IsGunSelected)
-        {
-            m_Gun.SetActive(true);
-        }
-        else
-        {
-            m_Gun.SetActive(false);
-        }
-    }
+    
 
     public void OnMoveStop(InputAction.CallbackContext _context)
     {
@@ -145,7 +142,5 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(m_FireRate);
         m_ShootReady = true;
     }
-
-    
 
 }

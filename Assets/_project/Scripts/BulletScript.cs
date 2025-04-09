@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -27,11 +26,6 @@ public class BulletScript : MonoBehaviour
         }
 
         m_Rigidbody.linearVelocity = m_Direction * m_BulletSpeed;
-    }
-
-    private void FixedUpdate()
-    {
-        Debug.Log("Bullet Speed: " + m_Rigidbody.linearVelocity.magnitude);
     }
 
     private void OnTriggerEnter(Collider other)
