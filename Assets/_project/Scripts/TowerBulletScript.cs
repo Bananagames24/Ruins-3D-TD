@@ -8,15 +8,18 @@ public class TowerBulletScript : MonoBehaviour
     public int m_TowerBulletDamage;
     private TowerScript m_TowerShoot;
 
+    public float m_SlowSpeed;
+
     private void Start()
     {
         m_TowerShoot = GetComponentInParent<TowerScript>();
         Destroy(gameObject, 4f);
+
     }
 
     private void Update()
     {
-        
+        m_SlowSpeed = m_TowerShoot.m_SlowEffect;
         m_TowerBulletDamage = m_TowerShoot.m_TowerDamage;
         if (m_TowerShoot.m_EnemiesInRange != null)
         {

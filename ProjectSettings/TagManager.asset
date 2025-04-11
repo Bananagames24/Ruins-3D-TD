@@ -9,6 +9,9 @@ TagManager:
   - Bullet
   - TowerBullet
   - Enemies
+  - Enemy
+  - SlowTowerBullet
+  - FireTowerBullet
   layers:
   - Default
   - TransparentFX

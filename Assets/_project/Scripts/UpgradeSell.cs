@@ -21,11 +21,14 @@ public class UpgradeSell : MonoBehaviour
             {
                 m_TowerScript.m_TowerCurrentUpgrade++;
                 m_TowerScript.SelectedTower();
+                m_TowerScript.m_TowerBuildEffect.Play();
             }
             else if (m_IsSell)
             {
+                m_TowerScript.Sell();
                 m_TowerScript.m_TowerCurrentUpgrade = 0;
                 m_TowerScript.SelectedTower();
+                m_TowerScript.m_TowerBuildEffect.Play();
             }
         }
     }
