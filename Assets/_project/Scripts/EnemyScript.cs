@@ -37,7 +37,7 @@ public class EnemyScript : MonoBehaviour
             m_Health = 40;
             m_LifeCost = 2;
             m_Speed = 4f;
-            m_CoinDrop = 7;
+            m_CoinDrop = 8;
         }
         else if (EnemyType == EnemySelect.SpeedE)
         {
@@ -51,42 +51,42 @@ public class EnemyScript : MonoBehaviour
             m_Health = 100;
             m_LifeCost = 5;
             m_Speed = 3f;
-            m_CoinDrop = 18;
+            m_CoinDrop = 16;
         }
         else if (EnemyType == EnemySelect.TankE)
         {
             m_Health = 175;
             m_LifeCost = 10;
             m_Speed = 2f;
-            m_CoinDrop = 23;
+            m_CoinDrop = 19;
         }
         else if (EnemyType == EnemySelect.SlowTankE)
         {
-            m_Health = 250;
+            m_Health = 500;
             m_LifeCost = 20;
             m_Speed = 1.8f;
-            m_CoinDrop = 32;
+            m_CoinDrop = 25;
         }
         else if (EnemyType == EnemySelect.Boss1E)
         {
-            m_Health = 1250;
+            m_Health = 2000;
             m_LifeCost = 50;
             m_Speed = 1.6f;
-            m_CoinDrop = 153;
+            m_CoinDrop = 50;
         }
         else if (EnemyType == EnemySelect.Boss2E)
         {
-            m_Health = 2500;
+            m_Health = 3500;
             m_LifeCost = 75;
             m_Speed = 1.4f;
-            m_CoinDrop = 221;
+            m_CoinDrop = 75;
         }
         else if (EnemyType == EnemySelect.Boss3E)
         {
-            m_Health = 400;
+            m_Health = 6000;
             m_LifeCost = 100;
             m_Speed = 1.2f;
-            m_CoinDrop = 351;
+            m_CoinDrop = 100;
         }
         m_Agent.speed = m_Speed;
         m_HealthBar.maxValue = m_Health;

@@ -7,6 +7,7 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private Rigidbody m_Rigidbody;
     [SerializeField] private Transform m_PlayerCameraTransform;
     private Vector3 m_Direction;
+    [SerializeField] private LayerMask m_IgnoreLayer;
 
     private void Start()
     {
@@ -14,9 +15,9 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject, 5f);
         m_PlayerCameraTransform = FindAnyObjectByType<Camera>().transform;
 
-        //shoots a bullet where to player looks at
+        // Shoots a bullet where the player looks at
         RaycastHit hit;
-        if (Physics.Raycast(m_PlayerCameraTransform.position, m_PlayerCameraTransform.forward, out hit))
+        if (Physics.Raycast(m_PlayerCameraTransform.position, m_PlayerCameraTransform.forward, out hit, Mathf.Infinity, ~m_IgnoreLayer))
         {
             m_Direction = (hit.point - transform.position).normalized;
         }

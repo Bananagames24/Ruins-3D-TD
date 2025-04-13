@@ -2172,7 +2172,7 @@ ParticleSystem:
     inWorldSpace: 0
   InheritVelocityModule:
     enabled: 0
-    m_Mode: 0
+    m_Mode: 1
     m_Curve:
       serializedVersion: 2
       minMaxState: 0
@@ -6295,8 +6295,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4484606802164032360}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.042317603, z: -0, w: 0.99910426}
-  m_LocalPosition: {x: 2.8, y: -0.3, z: -7.84}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6314,7 +6314,7 @@ Transform:
   - {fileID: 6719285799258476418}
   - {fileID: 266518481214125380}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -4.851, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4221929327354243203
 Animator:
   serializedVersion: 7

@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI m_Lives;
     public int m_LivesCount;
 
-    public GameObject m_PauseMenu;
-
     [SerializeField] private GameObject[] m_Enemies;
     [SerializeField] private Transform m_Spawn;
     public Transform m_EndPoint;
@@ -21,7 +19,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        m_PauseMenu.SetActive(false);
         m_LivesCount = 100;
         m_WaveInProgress = false;
         m_WaveCount = 0;
@@ -49,19 +46,7 @@ public class GameManager : MonoBehaviour
             m_Lives.text = "Lives: " + m_LivesCount;
         }
 
-        if(Input.GetButtonDown("Escape"))
-        {
-            if (m_PauseMenu.activeSelf)
-            {
-                m_PauseMenu.SetActive(false);
-                Time.timeScale = 1f;
-            }
-            else
-            {
-                m_PauseMenu.SetActive(true);
-                Time.timeScale = 0f;
-            }
-        }
+
     }
 
     IEnumerator SpawnWave()
@@ -102,6 +87,7 @@ public class GameManager : MonoBehaviour
                     i++;
                 }
                 yield return new WaitForSecondsRealtime(10f);
+                m_Coins += 35;
                 m_WaveCount++;
                 m_WaveInProgress = false;
                 break;
@@ -121,6 +107,7 @@ public class GameManager : MonoBehaviour
                     i++;
                 }
                 yield return new WaitForSecondsRealtime(20f);
+                m_Coins += 35;
                 m_WaveCount++;
                 m_WaveInProgress = false;
                 break;
@@ -140,6 +127,7 @@ public class GameManager : MonoBehaviour
                     i++;
                 }
                 yield return new WaitForSecondsRealtime(20f);
+                m_Coins += 35;
                 m_WaveCount++;
                 m_WaveInProgress = false;
                 break;
@@ -159,6 +147,7 @@ public class GameManager : MonoBehaviour
                     i++;
                 }
                 yield return new WaitForSecondsRealtime(20f);
+                m_Coins += 35;
                 m_WaveCount++;
                 m_WaveInProgress = false;
                 break;

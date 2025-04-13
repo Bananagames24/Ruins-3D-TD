@@ -4,20 +4,8 @@ public class ButtonManager : MonoBehaviour
 {
     public GameObject m_MainMenu;
     public GameObject LevelMenu;
-    public GameObject m_Credits;
-    public GameObject m_Help;
-
-    private void Start()
-    {
-        m_MainMenu.SetActive(true);
-        LevelMenu.SetActive(false);
-        m_Credits.SetActive(false);
-        m_Help.SetActive(false);
-    }
-
-
-    void Update()
-    {
-        
-    }
+    public GameObject m_HelpGameUI;
+    public GameObject m_PauseMenuUI;
+    public GameObject m_GameUI;
+    public GameObject m_DeadScreen;
 }

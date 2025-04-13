@@ -26,9 +26,6 @@ public class UpgradeSell : MonoBehaviour
             else if (m_IsSell)
             {
                 m_TowerScript.Sell();
-                m_TowerScript.m_TowerCurrentUpgrade = 0;
-                m_TowerScript.SelectedTower();
-                m_TowerScript.m_TowerBuildEffect.Play();
             }
         }
     }

@@ -35,6 +35,7 @@ public class TowerChoose : MonoBehaviour
                 m_TowerScript.m_TowerCost = 35;
                 if(m_GameManager.m_Coins >= m_TowerScript.m_TowerCost)
                 {
+                    m_TowerScript.m_TowerSellCost += m_TowerScript.m_TowerCost;
                     m_GameManager.m_Coins -= m_TowerScript.m_TowerCost;
                     m_TowerScript.m_TowerSelected = "ArcherT";
                     TowerUpdate();
@@ -50,6 +51,7 @@ public class TowerChoose : MonoBehaviour
                 m_TowerScript.m_TowerCost = 50;
                 if (m_GameManager.m_Coins >= m_TowerScript.m_TowerCost)
                 {
+                    m_TowerScript.m_TowerSellCost += m_TowerScript.m_TowerCost;
                     m_GameManager.m_Coins -= m_TowerScript.m_TowerCost;
                     m_TowerScript.m_TowerSelected = "MagicT";
                     TowerUpdate();
@@ -64,6 +66,7 @@ public class TowerChoose : MonoBehaviour
                 m_TowerScript.m_TowerCost = 60;
                 if (m_GameManager.m_Coins >= m_TowerScript.m_TowerCost)
                 {
+                    m_TowerScript.m_TowerSellCost += m_TowerScript.m_TowerCost;
                     m_GameManager.m_Coins -= m_TowerScript.m_TowerCost;
                     m_TowerScript.m_TowerSelected = "CannonT";
                     TowerUpdate();
@@ -78,6 +81,7 @@ public class TowerChoose : MonoBehaviour
                 m_TowerScript.m_TowerCost = 120;
                 if (m_GameManager.m_Coins >= m_TowerScript.m_TowerCost)
                 {
+                    m_TowerScript.m_TowerSellCost += m_TowerScript.m_TowerCost;
                     m_GameManager.m_Coins -= m_TowerScript.m_TowerCost;
                     m_TowerScript.m_TowerSelected = "FireT";
                     TowerUpdate();
@@ -92,6 +96,7 @@ public class TowerChoose : MonoBehaviour
                 m_TowerScript.m_TowerCost = 50;
                 if (m_GameManager.m_Coins >= m_TowerScript.m_TowerCost)
                 {
+                    m_TowerScript.m_TowerSellCost += m_TowerScript.m_TowerCost;
                     m_GameManager.m_Coins -= m_TowerScript.m_TowerCost;
                     m_TowerScript.m_TowerSelected = "SlowT";
                     TowerUpdate();
@@ -106,6 +111,7 @@ public class TowerChoose : MonoBehaviour
                 m_TowerScript.m_TowerCost = 150;
                 if (m_GameManager.m_Coins >= m_TowerScript.m_TowerCost)
                 {
+                    m_TowerScript.m_TowerSellCost += m_TowerScript.m_TowerCost;
                     m_GameManager.m_Coins -= m_TowerScript.m_TowerCost;
                     m_TowerScript.m_TowerSelected = "MoneyT";
                     TowerUpdate();

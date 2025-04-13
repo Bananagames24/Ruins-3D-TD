@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerScript : MonoBehaviour
@@ -33,6 +34,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Player UI")]
     public GameObject m_DeathScreen;
 
+    private GameManager m_GameManager;
+
     private void Start()
     {
         m_PlayerHealth = 5;
@@ -54,7 +57,11 @@ public class PlayerScript : MonoBehaviour
 
         if (m_IsDead)
         {
-            // Handle death logic here
+            m_DeathScreen.SetActive(true);
+        }
+        else if (!m_IsDead)
+        {
+            m_DeathScreen.SetActive(false);
         }
     }
 
@@ -143,4 +150,11 @@ public class PlayerScript : MonoBehaviour
         m_ShootReady = true;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemies"))
+        {
+            m_PlayerHealth --;
+        }
+    }
 }

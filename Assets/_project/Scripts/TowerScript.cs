@@ -97,6 +97,7 @@ public class TowerScript : MonoBehaviour
 
     }
 
+    //clears list of enemies that are null
     private void CleanUpEnemiesInRange()
     {
         for (int i = m_EnemiesInRange.Count - 1; i >= 0; i--)
@@ -137,7 +138,9 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 75;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerDamage = 5;
                         m_TowerRange = 20;
                         m_TowerFireRate = 0.4f;
@@ -151,6 +154,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 150;
                         m_TowerDamage = 8;
                         m_TowerRange = 20*1.2f;
@@ -165,6 +169,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 220;
                         m_TowerDamage = 10;
                         m_TowerRange = 20*1.35f;
@@ -179,6 +184,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerDamage = 10;
                         m_TowerRange = 20*1.35f;
                         m_TowerFireRate = 0.25f;
@@ -190,6 +196,7 @@ public class TowerScript : MonoBehaviour
                     break;
             }
         }
+
         //Magic Tower
         else if (m_TowerSelected == "MagicT")
         {
@@ -212,6 +219,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 175;
                         m_TowerDamage = 15;
                         m_TowerRange = 20*1.2f;
@@ -226,6 +234,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 250;
                         m_TowerDamage = 25;
                         m_TowerRange = 20*1.2f;
@@ -240,6 +249,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 350;
                         m_TowerDamage = 35;
                         m_TowerRange = 20*1.5f;
@@ -254,6 +264,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerDamage = 50;
                         m_TowerRange = 20*1.5f;
                         m_TowerFireRate = 0.667f;
@@ -265,6 +276,7 @@ public class TowerScript : MonoBehaviour
                     break;
             }
         }
+        
         //Cannon Tower
         else if (m_TowerSelected == "CannonT")
         {
@@ -287,6 +299,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 200;
                         m_TowerDamage = 40;
                         m_TowerRange = 20*1.3f;
@@ -301,6 +314,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 275;
                         m_TowerDamage = 40;
                         m_TowerRange = 20*1.3f;
@@ -315,6 +329,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 350;
                         m_TowerDamage = 50;
                         m_TowerRange = 20*1.3f;
@@ -329,6 +344,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerDamage = 80;
                         m_TowerRange = 20*1.5f;
                         m_TowerFireRate = 1;
@@ -340,6 +356,7 @@ public class TowerScript : MonoBehaviour
                     break;
             }
         }
+        
         //Fire Tower
         else if (m_TowerSelected == "FireT")
         {
@@ -362,6 +379,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 270;
                         m_TowerDamage = 4;
                         m_TowerRange = 20*1.2f;
@@ -376,6 +394,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 400;
                         m_TowerDamage = 13;
                         m_TowerRange = 20*1.2f;
@@ -390,6 +409,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 550;
                         m_TowerDamage = 13;
                         m_TowerRange = 20*1.5f;
@@ -404,6 +424,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerDamage = 40;
                         m_TowerRange = 20*1.5f;
                         m_TowerFireRate = 1.25f;
@@ -415,6 +436,7 @@ public class TowerScript : MonoBehaviour
                     break;
             }
         }
+        
         //Slow Tower
         else if (m_TowerSelected == "SlowT")
         {
@@ -438,6 +460,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 150;
                         m_TowerDamage = 4;
                         m_TowerRange = 20*1.2f;
@@ -453,6 +476,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 220;
                         m_TowerDamage = 8;
                         m_TowerRange = 20*1.2f;
@@ -468,6 +492,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 350;
                         m_TowerDamage = 8;
                         m_TowerRange = 20*1.5f;
@@ -483,6 +508,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerDamage = 10;
                         m_TowerRange = 20*1.5f;
                         m_TowerFireRate = 0.83f;
@@ -495,6 +521,7 @@ public class TowerScript : MonoBehaviour
                     break;
             }
         }
+        
         //Money Tower
         else if (m_TowerSelected == "MoneyT")
         {
@@ -518,6 +545,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 360;
                         m_Moneyfarming += 1;
                         m_MoneyTLVL1.SetActive(false);
@@ -530,6 +558,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 420;
                         m_Moneyfarming += 1;
                         m_MoneyTLVL2.SetActive(false);
@@ -542,6 +571,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_TowerCurrentCost = 550;
                         m_Moneyfarming += 1;
                         m_MoneyTLVL3.SetActive(false);
@@ -554,6 +584,7 @@ public class TowerScript : MonoBehaviour
                     if (m_GameManager.m_Coins >= m_TowerCurrentCost)
                     {
                         m_GameManager.m_Coins -= m_TowerCurrentCost;
+                        m_TowerSellCost += m_TowerCurrentCost;
                         m_Moneyfarming += 1;
                         m_MoneyTLVL4.SetActive(false);
                         m_MoneyTLVL5.SetActive(true);
@@ -622,7 +653,15 @@ public class TowerScript : MonoBehaviour
             }
             else
             {
-                if (m_TowerCurrentUpgrade <= 4) { m_TowerUIUpgrade.SetActive(true); }else { m_TowerUIUpgrade.SetActive(false); }
+                if (m_TowerCurrentUpgrade <= 4) 
+                {
+                    m_TowerUIUpgrade.SetActive(true); 
+                }
+                else 
+                {
+                    m_TowerUIUpgrade.SetActive(false);
+                }
+                
                 m_TowerUISell.SetActive(true);
                 m_TowerUIStats.SetActive(true);
                 m_TowerUIStart.SetActive(false);
@@ -634,6 +673,11 @@ public class TowerScript : MonoBehaviour
     {
         m_Moneyfarming = 0;
         m_MoneyFarmingActive = false;
+        m_GameManager.m_Coins += m_TowerSellCost * 8 / 10;
+        m_TowerSellCost = 0;
+        m_TowerCurrentUpgrade = 0;
+        SelectedTower();
+        m_TowerBuildEffect.Play();
     }
 
     IEnumerator MoneyFarming()

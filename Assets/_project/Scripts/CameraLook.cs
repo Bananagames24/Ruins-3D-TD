@@ -10,16 +10,21 @@ public class CameraLook : MonoBehaviour
 
     [SerializeField] private Transform m_PlayerTransform;
 
+    public GameObject m_PauseMenu;
+    public GameObject m_GameMenu;
+
     private void Start()
     {
         //makes the cursor invisible and locks it in the middle of the screen
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
+        m_PauseMenu.SetActive(false);
+        m_GameMenu.SetActive(true);
     }
 
     void LateUpdate()
     {
-        CamRotation();
+        if(!m_PauseMenu.activeSelf)CamRotation();
     }
 
     //lets the player look around
@@ -36,6 +41,26 @@ public class CameraLook : MonoBehaviour
         m_PlayerTransform.Rotate(Vector3.up * m_CamVector.x);
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Escape"))
+        {
+            if (m_PauseMenu.activeSelf)
+            {
+                m_PauseMenu.SetActive(false);
+                m_GameMenu.SetActive(true);
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = false;
+            }
+            else
+            {
+                m_PauseMenu.SetActive(true);
+                m_GameMenu.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
+    }
     public void OnLook(InputAction.CallbackContext context)
     {
         m_CamVector = context.ReadValue<Vector2>();
