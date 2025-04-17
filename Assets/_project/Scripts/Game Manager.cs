@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
             m_Lives.text = "Lives: " + m_LivesCount;
         }
 
-        if (m_WaveCount >= 26)
+        if (m_WaveCount > 26)
         {
             m_Lives.text = "You Win!";
             m_WinScreen.SetActive(true);
