@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI m_WaveText;
     public TextMeshProUGUI m_Lives;
     public int m_LivesCount;
+    public GameObject m_WinScreen;
 
     [SerializeField] private GameObject[] m_Enemies;
     [SerializeField] private Transform m_Spawn;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
         m_WaveCount = 0;
         m_Coins = 150;
         m_CoinsText.text = "Coins: " + m_Coins;
+        m_WinScreen.SetActive(false);
     }
 
     void Update()
@@ -40,10 +43,19 @@ public class GameManager : MonoBehaviour
         {
             m_Lives.text = "Game Over";
             m_LivesCount = 0;
+            SceneManager.LoadScene("GameOver");
         }
         else
         {
             m_Lives.text = "Lives: " + m_LivesCount;
+        }
+
+        if (m_WaveCount >= 26)
+        {
+            m_Lives.text = "You Win!";
+            m_WinScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
 
@@ -606,12 +618,18 @@ public class GameManager : MonoBehaviour
                 for (int i = 0; i < 50;)
                 {
                     Instantiate(m_Enemies[7], m_Spawn.position, Quaternion.identity);
-                    yield return new WaitForSecondsRealtime(5f);
+                    yield return new WaitForSecondsRealtime(1f);
                     i++;
                 }
                 yield return new WaitForSecondsRealtime(30f);
                 m_WaveCount++;
                 m_WaveInProgress = false;
+                break;
+
+            //End
+            case 26:
+                yield return new WaitForSecondsRealtime(300f);
+                m_WaveCount++;
                 break;
         }
     }
